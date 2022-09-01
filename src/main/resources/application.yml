@@ -1,0 +1,53 @@
+server:
+  port: '8082'
+---
+spring:
+  profiles.active: dev
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/db_app_dev
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  config:
+    activate:
+      on-profile: dev
+welcome:
+  message: 'Hello World DEV !!!'
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/db_app_prod
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  config:
+    activate:
+      on-profile: prod
+welcome:
+  message: 'Hello World PROD !!!'
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/db_app_qa
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  config:
+    activate:
+      on-profile: qa
+welcome:
+  message: 'Hello World QA !!!'
